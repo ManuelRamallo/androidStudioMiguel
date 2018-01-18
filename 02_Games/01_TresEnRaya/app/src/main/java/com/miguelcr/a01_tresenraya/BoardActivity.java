@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 public class BoardActivity extends AppCompatActivity {
 
-    TextView player1, player2;
+    TextView player1, player2, playerPlay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +15,7 @@ public class BoardActivity extends AppCompatActivity {
 
         player1 = findViewById(R.id.player1);
         player2 = findViewById(R.id.player2);
+        playerPlay = findViewById(R.id.playerPlay);
 
         // Rescatar los nombres de los jugadores
         Bundle extras = getIntent().getExtras();
@@ -24,6 +25,7 @@ public class BoardActivity extends AppCompatActivity {
 
         player1.setText(p1Name);
         player2.setText(p2Name);
+        playerPlay.setText(p1Name + " plays!");
 
     }
 }
