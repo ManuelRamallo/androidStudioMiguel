@@ -23,9 +23,11 @@ public class BoardActivity extends AppCompatActivity {
         String p1Name = extras.getString(Constantes.EXTRA_PLAYER_1);
         String p2Name = extras.getString(Constantes.EXTRA_PLAYER_2);
 
+        //String idiomaUsuario = getString(R.string.idioma);
+
         player1.setText(p1Name);
         player2.setText(p2Name);
-        playerPlay.setText(p1Name + " plays!");
+        playerPlay.setText(p2Name + " plays!");
 
     }
 }

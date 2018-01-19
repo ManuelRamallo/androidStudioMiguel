@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="idioma">en</string>
+    <string name="app_name">Tic tac toe</string>
+    <string name="text_view_vs">VS</string>
+
+</resources>
