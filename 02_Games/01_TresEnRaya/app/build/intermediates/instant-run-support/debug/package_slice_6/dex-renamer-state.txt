@@ -1,0 +1,4 @@
+#Fri Jan 19 08:54:23 CET 2018
+base.0=C\:\\Users\\mrdiaz\\Desktop\\repositorios\\androidStudioMiguel\\02_Games\\01_TresEnRaya\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\6
+path.0=classes.dex
+renamed.0=classes.dex
