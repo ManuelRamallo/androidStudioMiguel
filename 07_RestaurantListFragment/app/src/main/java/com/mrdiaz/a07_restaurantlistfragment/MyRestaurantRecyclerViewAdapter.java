@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 
@@ -29,8 +31,11 @@ public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRest
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+
+        holder.textViewNombre.setText(holder.mItem.getNombre());
+        holder.textViewDireccion.setText(holder.mItem.getDireccion());
+        holder.ratingBarRate.setRating(holder.mItem.getRate());
+
 
     }
 
@@ -41,20 +46,24 @@ public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRest
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final TextView textViewNombre;
+        public final TextView textViewDireccion;
+        public final ImageView imageViewIcono;
+        public final RatingBar ratingBarRate;
         public Restaurant mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            textViewDireccion = view.findViewById(R.id.textViewDireccion);
+            textViewNombre = view.findViewById(R.id.textViewNombre);
+            imageViewIcono = view.findViewById(R.id.imageViewIcono);
+            ratingBarRate = view.findViewById(R.id.ratingBarRate);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + textViewNombre.getText() + "'";
         }
     }
 }

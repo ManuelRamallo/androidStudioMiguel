@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantFragment extends Fragment {
@@ -32,6 +33,13 @@ public class RestaurantFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_restaurant_list, container, false);
 
+        restaurantList = new ArrayList<>();
+        restaurantList.add(new Restaurant("Goiko Grill", "republica argentina", "", 5));
+        restaurantList.add(new Restaurant("Cibeles", "Plaza Nueva", "", 0));
+        restaurantList.add(new Restaurant("TGB", "republica argentina", "", 3));
+
+
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -41,7 +49,7 @@ public class RestaurantFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(restaurantList ));
+            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(restaurantList));
         }
         return view;
     }
