@@ -1,5 +1,6 @@
 package com.mrdiaz.a07_restaurantlistfragment;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +10,19 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 
 
 public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRestaurantRecyclerViewAdapter.ViewHolder> {
 
+    private Context ctx;
     private final List<Restaurant> mValues;
 
-    public MyRestaurantRecyclerViewAdapter(List<Restaurant> items) {
+    public MyRestaurantRecyclerViewAdapter(Context context, List<Restaurant> items) {
+        ctx = context;
         mValues = items;
     }
 
@@ -35,6 +40,11 @@ public class MyRestaurantRecyclerViewAdapter extends RecyclerView.Adapter<MyRest
         holder.textViewNombre.setText(holder.mItem.getNombre());
         holder.textViewDireccion.setText(holder.mItem.getDireccion());
         holder.ratingBarRate.setRating(holder.mItem.getRate());
+
+        //Seteamos la imagen en el componente ImageView
+        Picasso.with(ctx)
+                .load(holder.mItem.getFoto())
+                .into(holder.imageViewIcono);
 
 
     }

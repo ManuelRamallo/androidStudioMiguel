@@ -2,7 +2,7 @@ package com.mrdiaz.a07_restaurantlistfragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +18,7 @@ public class RestaurantFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     List<Restaurant> restaurantList;
+    MyRestaurantRecyclerViewAdapter adapter;
 
     public RestaurantFragment() {
     }
@@ -34,9 +35,9 @@ public class RestaurantFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_restaurant_list, container, false);
 
         restaurantList = new ArrayList<>();
-        restaurantList.add(new Restaurant("Goiko Grill", "republica argentina", "", 5));
-        restaurantList.add(new Restaurant("Cibeles", "Plaza Nueva", "", 0));
-        restaurantList.add(new Restaurant("TGB", "republica argentina", "", 3));
+        restaurantList.add(new Restaurant("Goiko Grill", "republica argentina", "http://s03.s3c.es/imag/_v0/770x420/1/0/3/goiko-grill-coqueta.jpg", 5));
+        restaurantList.add(new Restaurant("Cibeles", "Plaza Nueva", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjmFiemTWWgGu7VB84aK677DN1SgDkEyR49tk-QCEYD07NSmTL", 0));
+        restaurantList.add(new Restaurant("TGB", "republica argentina", "https://media-cdn.tripadvisor.com/media/photo-s/0e/f0/91/92/tgb.jpg", 3));
 
 
 
@@ -49,7 +50,8 @@ public class RestaurantFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRestaurantRecyclerViewAdapter(restaurantList));
+            adapter = new MyRestaurantRecyclerViewAdapter(getActivity(), restaurantList);
+            recyclerView.setAdapter(adapter);
         }
         return view;
     }

@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             //return new y el fragmento que sea para cargar solo uno
-            return new Fragment();
+            return new RestaurantFragment();
         }
 
         @Override
