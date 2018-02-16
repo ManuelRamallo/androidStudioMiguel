@@ -16,11 +16,14 @@ import java.util.List;
 public class MyPortatilRecyclerViewAdapter extends RecyclerView.Adapter<MyPortatilRecyclerViewAdapter.ViewHolder> {
 
     private Context ctx;
+    private IOnPortatilInteractionListener mListener;
     private final List<Portatil> mValues;
 
-    public MyPortatilRecyclerViewAdapter(Context context, List<Portatil> items) {
+    public MyPortatilRecyclerViewAdapter(Context context, List<Portatil> items, IOnPortatilInteractionListener listener) {
         mValues = items;
         ctx = context;
+        mListener = listener;
+
     }
 
     @Override
@@ -39,6 +42,13 @@ public class MyPortatilRecyclerViewAdapter extends RecyclerView.Adapter<MyPortat
         holder.textViewPrecio.setText(holder.mItem.getPrecio() + " €");
 
         Picasso.with(ctx).load(holder.mItem.getFoto()).into(holder.imageViewFoto);
+
+        holder.mView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onPortatilClick(holder.mItem);
+            }
+        });
 
 
     }

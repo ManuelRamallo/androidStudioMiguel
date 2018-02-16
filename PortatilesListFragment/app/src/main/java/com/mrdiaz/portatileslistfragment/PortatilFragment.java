@@ -20,6 +20,7 @@ public class PortatilFragment extends Fragment {
     private int mColumnCount = 1;
     List<Portatil> portatilesList;
     MyPortatilRecyclerViewAdapter adapter;
+    IOnPortatilInteractionListener mListener;
 
 
     public PortatilFragment() {
@@ -52,10 +53,33 @@ public class PortatilFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            adapter = new MyPortatilRecyclerViewAdapter(getActivity(), portatilesList);
+            adapter = new MyPortatilRecyclerViewAdapter(getActivity(), portatilesList, mListener);
             recyclerView.setAdapter(adapter);
         }
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+
+        //Con la siguiente condicion me aseguro que el MainActivity esté implementando la interfaz IOnPortatilInteractionListener
+        //o lo que es lo mismo, que el MainActivity esté sobreescribiendo los métodos de la interfaz, en este caso el metodo
+        //onPortatilClick
+        //De esta manera me aseguro que desde el Adapter cuando el usuario haga Click en un elemento de la lista voy a poder
+        //invccar al método OnPortatilClick del MainActivity
+        if(context instanceof IOnPortatilInteractionListener){
+            mListener = (IOnPortatilInteractionListener) context;
+        } else {
+            throw new RuntimeException();
+        }
+    }
+
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
 }
