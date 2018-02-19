@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OpcionesMenu</string>
+    <string name="dialog_compartir_mensaje">¿Desea compartir el contenido con otro usuario?</string>
+    <string name="dialog_compartir_mensaje_titulo">Compartir</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+</resources>
