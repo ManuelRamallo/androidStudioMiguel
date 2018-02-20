@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AppGoogleKeep.iml" filepath="$PROJECT_DIR$/AppGoogleKeep.iml" />
+      <module fileurl="file://C:\Users\mrdiaz\Desktop\repositorios\androidStudioMiguel\Ejercicios\AppGoogleKeep\AppGoogleKeep.iml" filepath="C:\Users\mrdiaz\Desktop\repositorios\androidStudioMiguel\Ejercicios\AppGoogleKeep\AppGoogleKeep.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\mrdiaz\Desktop\repositorios\androidStudioMiguel\Ejercicios\AppGoogleKeep\app\app.iml" filepath="C:\Users\mrdiaz\Desktop\repositorios\androidStudioMiguel\Ejercicios\AppGoogleKeep\app\app.iml" />
     </modules>
   </component>
 </project>
